@@ -1,1 +1,776 @@
+<!doctype html>
+<html lang="en">
 
+<head>
+
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>
+        Creative Command Center
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/styles.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app-shell">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                C
+            </div>
+
+            <div>
+
+                <div class="brand-name">
+                    Creative Command
+                </div>
+
+                <div class="brand-sub">
+                    CENTER
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="new-project"
+            onclick="openCreate()"
+        >
+            + New Project
+        </button>
+
+
+        <div class="side-label">
+            PROJECTS
+        </div>
+
+
+        <div
+            id="projectList"
+            class="project-list"
+        >
+        </div>
+
+
+        <div class="side-footer">
+
+            <div class="status-dot"></div>
+
+            Local workspace
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN APPLICATION
+    ====================================================== -->
+
+    <main class="main">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <div class="eyebrow">
+                    WORKSPACE
+                </div>
+
+                <h1 id="pageTitle">
+                    Creative Command Center
+                </h1>
+
+            </div>
+
+
+            <div class="top-actions">
+
+                <span class="pill">
+                    V1 • Context Engine
+                </span>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             EMPTY STATE
+        ================================================== -->
+
+        <section
+            id="emptyState"
+            class="empty-state"
+        >
+
+            <div class="empty-icon">
+                ✦
+            </div>
+
+
+            <h2>
+                Build your first creative workflow
+            </h2>
+
+
+            <p>
+
+                Create a project once.
+
+                CCC keeps its brief, audience,
+                keywords, brand voice and constraints
+                available throughout the workflow.
+
+            </p>
+
+
+            <button
+                class="primary"
+                onclick="openCreate()"
+            >
+                Create Project
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROJECT WORKSPACE
+        ================================================== -->
+
+        <section
+            id="workspace"
+            class="workspace hidden"
+        >
+
+
+            <!-- PROJECT HEADER -->
+
+            <div class="hero-row">
+
+                <div>
+
+                    <div class="eyebrow">
+                        PROJECT CONTEXT
+                    </div>
+
+
+                    <h2 id="projectHeading">
+                    </h2>
+
+
+                    <p
+                        id="projectUpdated"
+                        class="muted"
+                    >
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-actions">
+
+                    <button
+                        class="secondary"
+                        onclick="startWorkflow()"
+                    >
+                        Start Workflow
+                    </button>
+
+
+                    <button
+                        class="primary"
+                        onclick="generateDraft()"
+                    >
+                        Generate Draft
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TWO COLUMN AREA
+            ================================================== -->
+
+            <div class="grid">
+
+
+                <!-- =============================================
+                     PERSISTENT CONTEXT
+                ============================================== -->
+
+                <section class="card context-card">
+
+
+                    <div class="card-head">
+
+                        <div>
+
+                            <div class="eyebrow">
+                                PERSISTENT CONTEXT
+                            </div>
+
+                            <h3>
+                                Project memory
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            class="text-button"
+                            onclick="saveContext()"
+                        >
+                            Save
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- PROJECT NAME -->
+
+                    <label>
+
+                        Project name
+
+                        <input
+                            id="name"
+                            type="text"
+                        >
+
+                    </label>
+
+
+
+                    <!-- BRIEF -->
+
+                    <label>
+
+                        Brief
+
+                        <textarea
+                            id="brief"
+                            rows="4"
+                            placeholder="What are you trying to create?"
+                        ></textarea>
+
+                    </label>
+
+
+
+                    <!-- AUDIENCE + KEYWORDS -->
+
+                    <div class="two-col">
+
+
+                        <label>
+
+                            Audience
+
+                            <textarea
+                                id="audience"
+                                rows="3"
+                                placeholder="Who is this for?"
+                            ></textarea>
+
+                        </label>
+
+
+                        <label>
+
+                            Keywords
+
+                            <textarea
+                                id="keywords"
+                                rows="3"
+                                placeholder="keyword 1, keyword 2"
+                            ></textarea>
+
+                        </label>
+
+
+                    </div>
+
+
+
+                    <!-- BRAND VOICE -->
+
+                    <label>
+
+                        Brand voice
+
+                        <textarea
+                            id="brand_voice"
+                            rows="3"
+                            placeholder="e.g. clear, confident, friendly"
+                        ></textarea>
+
+                    </label>
+
+
+
+                    <!-- CONSTRAINTS -->
+
+                    <label>
+
+                        Constraints
+
+                        <textarea
+                            id="constraints"
+                            rows="3"
+                            placeholder="Length, claims, style, mandatory points..."
+                        ></textarea>
+
+                    </label>
+
+
+                </section>
+
+
+
+                <!-- =============================================
+                     WORKFLOW
+                ============================================== -->
+
+                <section class="card workflow-card">
+
+
+                    <div class="card-head">
+
+                        <div>
+
+                            <div class="eyebrow">
+                                WORKFLOW
+                            </div>
+
+                            <h3>
+                                Context → Create → Review → Publish
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- WORKFLOW VISUALIZATION -->
+
+                    <div class="flow">
+
+
+                        <div
+                            class="flow-step"
+                            id="stepContext"
+                        >
+
+                            <span>
+                                01
+                            </span>
+
+                            <b>
+                                Context
+                            </b>
+
+                            <small>
+                                Saved project memory
+                            </small>
+
+                        </div>
+
+
+                        <div class="flow-line"></div>
+
+
+                        <div
+                            class="flow-step"
+                            id="stepDraft"
+                        >
+
+                            <span>
+                                02
+                            </span>
+
+                            <b>
+                                Create
+                            </b>
+
+                            <small>
+                                Draft from context
+                            </small>
+
+                        </div>
+
+
+                        <div class="flow-line"></div>
+
+
+                        <div
+                            class="flow-step"
+                            id="stepReview"
+                        >
+
+                            <span>
+                                03
+                            </span>
+
+                            <b>
+                                Review
+                            </b>
+
+                            <small>
+                                Human approval
+                            </small>
+
+                        </div>
+
+
+                        <div class="flow-line"></div>
+
+
+                        <div
+                            class="flow-step"
+                            id="stepPublish"
+                        >
+
+                            <span>
+                                04
+                            </span>
+
+                            <b>
+                                Publish
+                            </b>
+
+                            <small>
+                                Measure outcome
+                            </small>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- METRICS -->
+
+                    <div class="metrics">
+
+
+                        <div class="metric">
+
+                            <span>
+                                Context Leakage
+                            </span>
+
+                            <strong id="leakage">
+                                0
+                            </strong>
+
+                            <small>
+                                manual re-entries
+                            </small>
+
+                        </div>
+
+
+                        <div class="metric">
+
+                            <span>
+                                Time to Publish
+                            </span>
+
+                            <strong id="timePublish">
+                                —
+                            </strong>
+
+                            <small>
+                                measured workflow time
+                            </small>
+
+                        </div>
+
+
+                        <div class="metric">
+
+                            <span>
+                                Events
+                            </span>
+
+                            <strong id="eventCount">
+                                0
+                            </strong>
+
+                            <small>
+                                workflow signals
+                            </small>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- REVIEW / PUBLISH -->
+
+                    <div class="publish-actions">
+
+                        <button
+                            class="secondary"
+                            onclick="reviewDraft()"
+                        >
+                            Mark Human Review
+                        </button>
+
+
+                        <button
+                            class="primary"
+                            onclick="publishDraft()"
+                        >
+                            Mark Published
+                        </button>
+
+                    </div>
+
+
+                </section>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 DRAFT OUTPUT
+            ================================================== -->
+
+            <section class="card draft-card">
+
+
+                <div class="card-head">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            OUTPUT
+                        </div>
+
+                        <h3>
+                            Latest draft
+                        </h3>
+
+                    </div>
+
+
+                    <button
+                        class="text-button"
+                        onclick="copyDraft()"
+                    >
+                        Copy
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="draftOutput"
+                    class="draft-output"
+                >
+
+                    <div class="placeholder">
+
+                        Generate a draft and it will
+                        appear here.
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 EVENT TRACE
+            ================================================== -->
+
+            <section class="card event-card">
+
+
+                <div class="card-head">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            TRACE
+                        </div>
+
+                        <h3>
+                            Workflow events
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="events"
+                    class="events"
+                >
+                </div>
+
+
+            </section>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================================
+     CREATE PROJECT MODAL
+========================================================= -->
+
+<div
+    id="modal"
+    class="modal hidden"
+>
+
+
+    <div class="modal-box">
+
+
+        <div class="card-head">
+
+            <div>
+
+                <div class="eyebrow">
+                    NEW PROJECT
+                </div>
+
+                <h3>
+                    Start a creative workflow
+                </h3>
+
+            </div>
+
+
+            <button
+                class="close"
+                onclick="closeModal()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <!-- PROJECT NAME -->
+
+        <label>
+
+            Project name
+
+            <input
+                id="newName"
+                type="text"
+                placeholder="e.g. Product Launch Campaign"
+            >
+
+        </label>
+
+
+
+        <!-- PROJECT BRIEF -->
+
+        <label>
+
+            Brief
+
+            <textarea
+                id="newBrief"
+                rows="5"
+                placeholder="Describe what you need to create..."
+            ></textarea>
+
+        </label>
+
+
+
+        <!-- BUTTONS -->
+
+        <div class="modal-actions">
+
+            <button
+                class="secondary"
+                onclick="closeModal()"
+            >
+                Cancel
+            </button>
+
+
+            <button
+                class="primary"
+                onclick="createProject()"
+            >
+                Create
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script
+    src="/static/app.js"
+></script>
+
+
+</body>
+
+</html>
