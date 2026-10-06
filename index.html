@@ -2,67 +2,127 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Creative Command Center</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
         content="Creative Command Center — persistent context for creative workflows."
     >
 
-    <link rel="stylesheet" href="styles.css">
+    <title>
+        Creative Command Center
+    </title>
+
+    <!-- Main stylesheet -->
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
 </head>
+
 
 <body>
 
 <div class="app-shell">
 
-    <!-- SIDEBAR -->
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
     <aside class="sidebar">
 
         <div class="brand">
-            <div class="brand-mark">C</div>
+
+            <div class="brand-mark">
+                C
+            </div>
 
             <div>
-                <div class="brand-name">Creative</div>
-                <div class="brand-subtitle">Command Center</div>
+
+                <div class="brand-name">
+                    Creative Command
+                </div>
+
+                <div class="brand-subtitle">
+                    CENTER
+                </div>
+
             </div>
+
         </div>
+
 
         <div class="workspace-label">
             WORKSPACE
         </div>
 
-        <button class="nav-item active">
-            <span>◈</span>
+
+        <button
+            class="nav-item active"
+            onclick="scrollToSection('overview')"
+        >
+            <span>⌂</span>
             Overview
         </button>
 
-        <button class="nav-item" onclick="scrollToSection('context-section')">
-            <span>◎</span>
-            Persistent Context
+
+        <button
+            class="nav-item"
+            onclick="scrollToSection('context-section')"
+        >
+            <span>◈</span>
+            Project Context
         </button>
 
-        <button class="nav-item" onclick="scrollToSection('workflow-section')">
+
+        <button
+            class="nav-item"
+            onclick="scrollToSection('workflow-section')"
+        >
             <span>→</span>
             Workflow
         </button>
 
-        <button class="nav-item" onclick="scrollToSection('draft-section')">
+
+        <button
+            class="nav-item"
+            onclick="scrollToSection('draft-section')"
+        >
             <span>✦</span>
             Creative Output
         </button>
 
+
+        <button
+            class="nav-item"
+            onclick="scrollToSection('events-section')"
+        >
+            <span>◷</span>
+            Event Trace
+        </button>
+
+
         <div class="sidebar-bottom">
 
             <div class="demo-badge">
-                <div class="status-dot"></div>
-                Demo Mode
+
+                <span class="status-dot"></span>
+
+                MVP DEMO
+
             </div>
 
+
             <div class="sidebar-note">
-                Your project context stays connected throughout the creative workflow.
+
+                Persistent project context
+                across the creative workflow.
+
             </div>
 
         </div>
@@ -70,28 +130,48 @@
     </aside>
 
 
-    <!-- MAIN -->
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
     <main class="main-content">
 
-        <!-- TOP BAR -->
+
+        <!-- =================================================
+             TOP BAR
+             ================================================= -->
+
         <header class="topbar">
 
             <div>
-                <div class="eyebrow">CREATIVE OPERATIONS</div>
+
+                <div class="eyebrow">
+                    CREATIVE OPERATIONS
+                </div>
 
                 <h1>
-                    Stop rebuilding context<br>
-                    <span>for every tool.</span>
+                    Creative
+                    <span>Command Center.</span>
                 </h1>
+
             </div>
+
 
             <div class="topbar-actions">
 
-                <button class="secondary-btn" onclick="resetDemo()">
+                <button
+                    class="secondary-btn"
+                    onclick="resetDemo()"
+                >
                     Reset Demo
                 </button>
 
-                <button class="primary-btn" onclick="createProject()">
+
+                <button
+                    class="primary-btn"
+                    onclick="createProject()"
+                >
                     + New Project
                 </button>
 
@@ -100,69 +180,129 @@
         </header>
 
 
-        <!-- HERO -->
-        <section class="hero-card">
+
+        <!-- =================================================
+             HERO
+             ================================================= -->
+
+        <section
+            id="overview"
+            class="hero-card"
+        >
 
             <div class="hero-copy">
 
-                <div class="pill">
-                    ✦ Persistent Creative Context
-                </div>
+                <span class="pill">
+                    Persistent context for creative workflows
+                </span>
+
 
                 <h2>
-                    One project.<br>
-                    <strong>One source of truth.</strong>
+                    Stop rebuilding
+                    <strong>context.</strong>
                 </h2>
 
+
                 <p>
-                    Creative Command Center keeps your project's audience,
-                    goals, tone, keywords and decisions connected from
-                    creation to publication.
+                    Creative Command Center keeps the project's
+                    goals, audience, keywords and creative
+                    decisions connected from brief to publication.
                 </p>
+
 
                 <div class="hero-actions">
 
-                    <button class="primary-btn large" onclick="startWorkflow()">
+                    <button
+                        class="primary-btn large"
+                        onclick="startWorkflow()"
+                    >
                         Start Workflow →
                     </button>
 
-                    <button class="text-btn" onclick="scrollToSection('context-section')">
-                        Explore Context
+
+                    <button
+                        class="text-btn"
+                        onclick="scrollToSection('context-section')"
+                    >
+                        Explore project context
                     </button>
 
                 </div>
 
             </div>
 
+
+
+            <!-- Hero visual -->
 
             <div class="hero-visual">
 
                 <div class="floating-card card-one">
-                    <span class="mini-icon">◎</span>
-                    <div>
-                        <strong>Context</strong>
-                        <small>Always available</small>
+
+                    <div class="mini-icon">
+                        ◈
                     </div>
+
+                    <div>
+
+                        <strong>
+                            Project Context
+                        </strong>
+
+                        <small>
+                            Audience · Goals · Voice
+                        </small>
+
+                    </div>
+
                 </div>
 
+
                 <div class="connection-line"></div>
+
 
                 <div class="floating-card card-two">
-                    <span class="mini-icon">✦</span>
-                    <div>
-                        <strong>Creative Output</strong>
-                        <small>Generated with context</small>
+
+                    <div class="mini-icon">
+                        ✦
                     </div>
+
+                    <div>
+
+                        <strong>
+                            Creative Draft
+                        </strong>
+
+                        <small>
+                            Generated from context
+                        </small>
+
+                    </div>
+
                 </div>
+
 
                 <div class="connection-line"></div>
 
+
                 <div class="floating-card card-three">
-                    <span class="mini-icon">✓</span>
-                    <div>
-                        <strong>Publish</strong>
-                        <small>Measured & tracked</small>
+
+                    <div class="mini-icon">
+                        ✓
                     </div>
+
+                    <div>
+
+                        <strong>
+                            Published
+                        </strong>
+
+                        <small>
+                            Ready to measure
+                        </small>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -170,53 +310,37 @@
         </section>
 
 
-        <!-- PROJECT -->
-        <section class="section">
+
+        <!-- =================================================
+             PROJECT CONTEXT
+             ================================================= -->
+
+        <section
+            id="context-section"
+            class="section"
+        >
 
             <div class="section-heading">
 
                 <div>
-                    <div class="section-kicker">ACTIVE PROJECT</div>
 
-                    <h2 id="project-name">
-                        CCC Product Launch
-                    </h2>
-
-                    <p id="project-description">
-                        Launch Creative Command Center as a workflow
-                        orchestration platform for freelance creators
-                        and small creative teams.
-                    </p>
-                </div>
-
-                <div class="live-status">
-                    <span></span>
-                    LIVE PROJECT
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- CONTEXT -->
-        <section class="section" id="context-section">
-
-            <div class="section-heading">
-
-                <div>
                     <div class="section-kicker">
-                        01 / PERSISTENT CONTEXT
+                        PROJECT CONTEXT
                     </div>
 
                     <h2>
-                        The context follows the project.
+                        One source of truth.
                     </h2>
 
-                    <p>
-                        Define the project once. Every downstream creative
-                        action can reference the same context.
-                    </p>
+                </div>
+
+
+                <div class="live-status">
+
+                    <span></span>
+
+                    CONTEXT AVAILABLE
+
                 </div>
 
             </div>
@@ -224,38 +348,67 @@
 
             <div class="context-grid">
 
-                <div class="context-card wide">
 
-                    <label>PROJECT BRIEF</label>
-
-                    <textarea id="brief"></textarea>
-
-                </div>
-
-
-                <div class="context-card">
-
-                    <label>TARGET AUDIENCE</label>
-
-                    <textarea id="audience"></textarea>
-
-                </div>
-
-
-                <div class="context-card">
-
-                    <label>BRAND VOICE</label>
-
-                    <textarea id="voice"></textarea>
-
-                </div>
-
+                <!-- Brief -->
 
                 <div class="context-card wide">
 
-                    <label>KEYWORDS</label>
+                    <label for="brief">
+                        PROJECT BRIEF
+                    </label>
 
-                    <input id="keywords" type="text">
+                    <textarea
+                        id="brief"
+                        placeholder="Describe the project..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Audience -->
+
+                <div class="context-card">
+
+                    <label for="audience">
+                        TARGET AUDIENCE
+                    </label>
+
+                    <textarea
+                        id="audience"
+                        placeholder="Who are you creating for?"
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Keywords -->
+
+                <div class="context-card">
+
+                    <label for="keywords">
+                        KEYWORDS / THEMES
+                    </label>
+
+                    <textarea
+                        id="keywords"
+                        placeholder="Keywords, themes and concepts..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Voice -->
+
+                <div class="context-card wide">
+
+                    <label for="voice">
+                        CREATIVE VOICE
+                    </label>
+
+                    <textarea
+                        id="voice"
+                        placeholder="How should the output sound?"
+                    ></textarea>
 
                 </div>
 
@@ -264,9 +417,13 @@
 
             <div class="context-actions">
 
-                <button class="secondary-btn" onclick="saveContext()">
+                <button
+                    class="primary-btn"
+                    onclick="saveContext()"
+                >
                     Save Context
                 </button>
+
 
                 <span id="save-status">
                     Context synced
@@ -277,19 +434,34 @@
         </section>
 
 
-        <!-- WORKFLOW -->
-        <section class="section" id="workflow-section">
+
+        <!-- =================================================
+             WORKFLOW
+             ================================================= -->
+
+        <section
+            id="workflow-section"
+            class="section"
+        >
 
             <div class="section-heading">
 
                 <div>
+
                     <div class="section-kicker">
-                        02 / WORKFLOW
+                        WORKFLOW
                     </div>
 
                     <h2>
-                        From project to publication.
+                        Context follows the project.
                     </h2>
+
+                    <p>
+                        Move from project definition to
+                        publication without rebuilding the
+                        same information at every step.
+                    </p>
+
                 </div>
 
             </div>
@@ -297,84 +469,175 @@
 
             <div class="workflow">
 
-                <div class="workflow-step completed" id="step-project">
-                    <div class="step-number">01</div>
 
-                    <div class="step-icon">◈</div>
+                <!-- Step 01 -->
 
-                    <strong>Project</strong>
+                <div
+                    id="step-project"
+                    class="workflow-step completed"
+                >
 
-                    <span>Define</span>
+                    <div class="step-number">
+                        01
+                    </div>
+
+                    <div class="step-icon">
+                        ◈
+                    </div>
+
+                    <strong>
+                        Project
+                    </strong>
+
+                    <span>
+                        Define
+                    </span>
+
                 </div>
 
 
                 <div class="workflow-connector"></div>
 
 
-                <div class="workflow-step completed" id="step-context">
-                    <div class="step-number">02</div>
+                <!-- Step 02 -->
 
-                    <div class="step-icon">◎</div>
+                <div
+                    id="step-context"
+                    class="workflow-step completed"
+                >
 
-                    <strong>Context</strong>
+                    <div class="step-number">
+                        02
+                    </div>
 
-                    <span>Persist</span>
+                    <div class="step-icon">
+                        ◎
+                    </div>
+
+                    <strong>
+                        Context
+                    </strong>
+
+                    <span>
+                        Persist
+                    </span>
+
                 </div>
 
 
                 <div class="workflow-connector"></div>
 
 
-                <div class="workflow-step" id="step-draft">
-                    <div class="step-number">03</div>
+                <!-- Step 03 -->
 
-                    <div class="step-icon">✦</div>
+                <div
+                    id="step-draft"
+                    class="workflow-step"
+                >
 
-                    <strong>Draft</strong>
+                    <div class="step-number">
+                        03
+                    </div>
 
-                    <span>Create</span>
+                    <div class="step-icon">
+                        ✦
+                    </div>
+
+                    <strong>
+                        Draft
+                    </strong>
+
+                    <span>
+                        Create
+                    </span>
+
                 </div>
 
 
                 <div class="workflow-connector"></div>
 
 
-                <div class="workflow-step" id="step-review">
-                    <div class="step-number">04</div>
+                <!-- Step 04 -->
 
-                    <div class="step-icon">◌</div>
+                <div
+                    id="step-review"
+                    class="workflow-step"
+                >
 
-                    <strong>Review</strong>
+                    <div class="step-number">
+                        04
+                    </div>
 
-                    <span>Human</span>
+                    <div class="step-icon">
+                        ✓
+                    </div>
+
+                    <strong>
+                        Review
+                    </strong>
+
+                    <span>
+                        Human check
+                    </span>
+
                 </div>
 
 
                 <div class="workflow-connector"></div>
 
 
-                <div class="workflow-step" id="step-publish">
-                    <div class="step-number">05</div>
+                <!-- Step 05 -->
 
-                    <div class="step-icon">↑</div>
+                <div
+                    id="step-publish"
+                    class="workflow-step"
+                >
 
-                    <strong>Publish</strong>
+                    <div class="step-number">
+                        05
+                    </div>
 
-                    <span>Release</span>
+                    <div class="step-icon">
+                        ↑
+                    </div>
+
+                    <strong>
+                        Publish
+                    </strong>
+
+                    <span>
+                        Release
+                    </span>
+
                 </div>
 
 
                 <div class="workflow-connector"></div>
 
 
-                <div class="workflow-step" id="step-measure">
-                    <div class="step-number">06</div>
+                <!-- Step 06 -->
 
-                    <div class="step-icon">↗</div>
+                <div
+                    id="step-measure"
+                    class="workflow-step"
+                >
 
-                    <strong>Measure</strong>
+                    <div class="step-number">
+                        06
+                    </div>
 
-                    <span>Learn</span>
+                    <div class="step-icon">
+                        ◌
+                    </div>
+
+                    <strong>
+                        Measure
+                    </strong>
+
+                    <span>
+                        Learn
+                    </span>
+
                 </div>
 
             </div>
@@ -382,8 +645,13 @@
         </section>
 
 
-        <!-- METRICS -->
-        <section class="metrics-grid">
+
+        <!-- =================================================
+             METRICS
+             ================================================= -->
+
+        <div class="metrics-grid">
+
 
             <div class="metric-card">
 
@@ -391,12 +659,15 @@
                     CONTEXT LEAKAGE
                 </div>
 
-                <div class="metric-value" id="leakage-score">
-                    0%
+                <div
+                    id="leakage-score"
+                    class="metric-value"
+                >
+                    12%
                 </div>
 
                 <div class="metric-description">
-                    Context lost between workflow stages
+                    Demo estimate before workflow execution
                 </div>
 
             </div>
@@ -408,12 +679,15 @@
                     TIME TO PUBLISH
                 </div>
 
-                <div class="metric-value" id="publish-time">
+                <div
+                    id="publish-time"
+                    class="metric-value"
+                >
                     —
                 </div>
 
                 <div class="metric-description">
-                    From workflow start to publication
+                    Measured from workflow start
                 </div>
 
             </div>
@@ -425,7 +699,10 @@
                     CONTEXT SAVES
                 </div>
 
-                <div class="metric-value" id="context-saves">
+                <div
+                    id="context-saves"
+                    class="metric-value"
+                >
                     0
                 </div>
 
@@ -435,37 +712,45 @@
 
             </div>
 
-        </section>
+        </div>
 
 
-        <!-- DRAFT -->
-        <section class="section" id="draft-section">
+
+        <!-- =================================================
+             CREATIVE OUTPUT
+             ================================================= -->
+
+        <section
+            id="draft-section"
+            class="section"
+        >
 
             <div class="section-heading">
 
                 <div>
+
                     <div class="section-kicker">
-                        03 / CREATIVE OUTPUT
+                        CREATIVE OUTPUT
                     </div>
 
                     <h2>
-                        Create without starting over.
+                        Generate without starting over.
                     </h2>
 
                     <p>
-                        The draft below is generated from the persistent
-                        project context.
+                        The demo generator uses the saved
+                        project context to create a draft.
                     </p>
-                </div>
 
-                <button class="primary-btn" onclick="generateDraft()">
-                    ✦ Generate Draft
-                </button>
+                </div>
 
             </div>
 
 
             <div class="draft-layout">
+
+
+                <!-- Draft -->
 
                 <div class="draft-card">
 
@@ -475,25 +760,36 @@
                             AI CREATIVE DRAFT
                         </span>
 
-                        <button onclick="copyDraft()">
+
+                        <button
+                            onclick="copyDraft()"
+                        >
                             Copy
                         </button>
 
                     </div>
 
-                    <div id="draft-output" class="draft-output">
+
+                    <div
+                        id="draft-output"
+                        class="draft-output"
+                    >
 
                         <div class="empty-state">
 
-                            <div class="empty-icon">✦</div>
+                            <div class="empty-icon">
+                                ✦
+                            </div>
 
                             <h3>
-                                Your creative output will appear here.
+                                Your creative output
+                                will appear here.
                             </h3>
 
                             <p>
-                                Generate a draft using the persistent
-                                project context.
+                                Generate a draft using
+                                the persistent project
+                                context.
                             </p>
 
                         </div>
@@ -503,32 +799,55 @@
                 </div>
 
 
+
+                <!-- Review panel -->
+
                 <div class="review-card">
 
                     <div class="review-header">
-                        <span>HUMAN REVIEW</span>
-                        <span class="review-status" id="review-status">
+
+                        <span>
+                            HUMAN REVIEW
+                        </span>
+
+                        <span
+                            id="review-status"
+                            class="review-status"
+                        >
                             Pending
                         </span>
+
                     </div>
 
+
                     <p>
-                        AI generates the starting point.
-                        The human remains in control.
+                        AI output remains subject to
+                        human approval before it can
+                        move to publication.
                     </p>
+
+
+                    <button
+                        class="primary-btn full"
+                        onclick="generateDraft()"
+                    >
+                        Generate Draft
+                    </button>
+
 
                     <button
                         class="secondary-btn full"
                         onclick="approveDraft()"
                     >
-                        ✓ Approve Draft
+                        Approve Draft
                     </button>
+
 
                     <button
                         class="primary-btn full"
                         onclick="publishProject()"
                     >
-                        Publish →
+                        Publish Project
                     </button>
 
                 </div>
@@ -538,36 +857,63 @@
         </section>
 
 
-        <!-- EVENT TRACE -->
-        <section class="section">
+
+        <!-- =================================================
+             EVENT TRACE
+             ================================================= -->
+
+        <section
+            id="events-section"
+            class="section"
+        >
 
             <div class="section-heading">
 
                 <div>
+
                     <div class="section-kicker">
-                        04 / EVENT TRACE
+                        EVENT TRACE
                     </div>
 
                     <h2>
-                        Every action stays visible.
+                        See what happened.
                     </h2>
+
+                    <p>
+                        A lightweight audit trail of
+                        the project workflow.
+                    </p>
 
                 </div>
 
             </div>
 
 
-            <div class="event-trace" id="event-trace">
+            <div
+                id="event-trace"
+                class="event-trace"
+            >
 
                 <div class="event">
+
                     <div class="event-dot"></div>
 
                     <div>
-                        <strong>Project initialized</strong>
-                        <span>Creative Command Center</span>
+
+                        <strong>
+                            Project initialized
+                        </strong>
+
+                        <span>
+                            Creative Command Center
+                        </span>
+
                     </div>
 
-                    <time>Now</time>
+                    <time>
+                        Now
+                    </time>
+
                 </div>
 
             </div>
@@ -575,87 +921,131 @@
         </section>
 
 
-        <!-- FINAL CTA -->
+
+        <!-- =================================================
+             FINAL CTA
+             ================================================= -->
+
         <section class="final-cta">
 
             <div>
 
                 <div class="section-kicker">
-                    CREATIVE OPERATIONS, CONNECTED
+                    PRODUCT PRINCIPLE
                 </div>
 
                 <h2>
-                    One context.<br>
-                    Every creative touchpoint.
+                    The project owns
+                    the context.
                 </h2>
 
                 <p>
-                    Creative Command Center is designed to reduce
-                    context switching and make creative workflows
-                    more consistent.
+                    Instead of asking every tool to
+                    remember the project independently,
+                    Creative Command Center creates one
+                    persistent source of truth that can
+                    move through the creative stack.
                 </p>
 
             </div>
 
-            <button class="primary-btn large" onclick="startWorkflow()">
+
+            <button
+                class="primary-btn"
+                onclick="startWorkflow()"
+            >
                 Run Demo →
             </button>
 
         </section>
 
 
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
         <footer>
 
-            <div>
-                © 2026 Creative Command Center
-            </div>
+            <span>
+                Creative Command Center · MVP
+            </span>
 
-            <div>
-                MVP / Product Demonstration
-            </div>
+            <span>
+                Persistent context for creative workflows
+            </span>
 
         </footer>
+
 
     </main>
 
 </div>
 
 
-<!-- NEW PROJECT MODAL -->
-<div class="modal hidden" id="project-modal">
 
-    <div class="modal-overlay" onclick="closeModal()"></div>
+<!-- =========================================================
+     NEW PROJECT MODAL
+     ========================================================= -->
+
+<div
+    id="project-modal"
+    class="modal hidden"
+>
+
+    <div
+        class="modal-overlay"
+        onclick="closeModal()"
+    ></div>
+
 
     <div class="modal-card">
 
-        <button class="modal-close" onclick="closeModal()">×</button>
+        <button
+            class="modal-close"
+            onclick="closeModal()"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
 
         <div class="section-kicker">
             NEW PROJECT
         </div>
 
+
         <h2>
-            Start a creative project.
+            Start a new creative project.
         </h2>
 
+
         <p>
-            Create a new persistent context object for your project.
+            Create a project and establish its
+            persistent context.
         </p>
 
-        <label>PROJECT NAME</label>
+
+        <label for="new-project-name">
+            PROJECT NAME
+        </label>
 
         <input
             id="new-project-name"
             type="text"
-            placeholder="e.g. Summer Campaign"
+            placeholder="e.g. Nike Spring Campaign"
         >
 
-        <label>PROJECT DESCRIPTION</label>
+
+        <label for="new-project-description">
+            DESCRIPTION
+        </label>
 
         <textarea
             id="new-project-description"
-            placeholder="What are you creating?"
+            placeholder="What are you trying to create?"
         ></textarea>
+
 
         <button
             class="primary-btn full"
@@ -669,8 +1059,18 @@
 </div>
 
 
+
+<!-- =========================================================
+     TOAST
+     ========================================================= -->
+
 <div id="toast"></div>
 
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
 
 <script src="app.js"></script>
 
